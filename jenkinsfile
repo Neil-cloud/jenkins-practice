@@ -24,6 +24,8 @@ pipeline{
             steps{
                 echo "Starting Test Phase..."
                 sh 'dotnet test'
+                echo 'Server tests complete!'
+                sh 'npm --prefix ClientApp run test'
             }
             post{
                 always{
