@@ -1,0 +1,52 @@
+pipeline{
+    agent{
+        label any
+    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "Starting Build Phase..."
+                sh 'dotnet build'
+            }
+            post{
+                always{
+                    echo "Step execution completed"
+                }
+                success{
+                    echo "Build success!"
+                }
+                failure{
+                    echo "Build failed"
+                }
+            }
+        }
+        stage("Test"){
+            steps{
+                echo "Starting Test Phase..."
+                sh 'dotnet test'
+            }
+            post{
+                always{
+                    echo "Test execution completed"
+                }
+                success{
+                    echo "All tests passed!"
+                }
+                failure{
+                    echo "One or more tests failed"
+                }
+            }
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
