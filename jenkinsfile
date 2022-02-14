@@ -43,6 +43,7 @@ pipeline{
         always{
             echo "========always========"
             emailext body: 'Test Message',
+            subject: 'Test',
             to: 'neilprabhu2796@gmail.com',
             from: 'neilprabhu2796@gmail.com'
         }
