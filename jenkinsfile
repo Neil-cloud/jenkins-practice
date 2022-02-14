@@ -44,7 +44,7 @@ pipeline{
             echo "========always========"
             emailext body: 'Test Message',
             to: 'neilprabhu2796@gmail.com',
-            subject: 'Test subject'
+            from: 'neilprabhu2796@gmail.com'
         }
         success{
             echo "========pipeline executed successfully ========"
