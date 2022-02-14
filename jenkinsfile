@@ -5,7 +5,7 @@ pipeline{
         stage("Build"){
             steps{
                 echo "Starting Build Phase..."
-                sh 'dotnet build'
+                bat 'dotnet build'
             }
             post{
                 always{
@@ -22,9 +22,9 @@ pipeline{
         stage("Test"){
             steps{
                 echo "Starting Test Phase..."
-                sh 'dotnet test'
+                bat 'dotnet test'
                 echo 'Server tests complete!'
-                sh 'npm --prefix ClientApp run test'
+                bat 'npm --prefix ClientApp run test'
             }
             post{
                 always{
