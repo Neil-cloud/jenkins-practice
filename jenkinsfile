@@ -42,7 +42,9 @@ pipeline{
     post{
         always{
             echo "========always========"
-            mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Build URL: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'neilprabhu2796@gmail.com', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "neil27-test-grp@googlegroups.com";
+            emailtext body: 'Test Message',
+            to: 'neilprabhu2796@gmail.com',
+            subject: 'Test subject'
         }
         success{
             echo "========pipeline executed successfully ========"
